@@ -2,12 +2,6 @@ extends RigidBody2D
 
 var force = 500
 
-func _ready():
-	pass
-
-func _process(delta):
-	pass
-
 func _physics_process(delta):
 	if Input.is_action_pressed("move_right"):
 		apply_force(Vector2(force, 0))
