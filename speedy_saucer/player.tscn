@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://player.gd" id="1_wohgf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ah2fu"]
-radius = 45.0
+radius = 18.2483
 
 [node name="Player" type="RigidBody2D"]
 gravity_scale = 0.0
