@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://u3ge42ldcttv"]
+
+[ext_resource type="Texture2D" uid="uid://bf47cpugf56x4" path="res://darkPurple.png" id="1_ahi8l"]
+
+[node name="Track" type="Area2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-192, -157, -192, 166, 60, 166, 58, 45, 1937, 45, 1940, 746, -565, 741, -565, 48, -192, 48, -192, -86, -721, -86, -724, 887, 2106, 884, 2086, -81, 58, -94, 55, -215, -202, -217)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+texture_repeat = 2
+texture = ExtResource("1_ahi8l")
+polygon = PackedVector2Array(-192, -157, -192, 166, 60, 166, 58, 45, 1937, 45, 1940, 746, -565, 741, -565, 48, -192, 48, -192, -86, -721, -86, -724, 887, 2106, 884, 2086, -81, 58, -94, 55, -215, -202, -217)
