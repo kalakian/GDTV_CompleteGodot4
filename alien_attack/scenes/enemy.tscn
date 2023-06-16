@@ -9,7 +9,7 @@ height = 130.0
 
 [node name="Enemy" type="Area2D"]
 collision_layer = 2
-collision_mask = 5
+collision_mask = 13
 script = ExtResource("1_ffut1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
