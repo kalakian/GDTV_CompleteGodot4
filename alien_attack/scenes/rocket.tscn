@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dx48qhlub6br"]
 
 [ext_resource type="Texture2D" uid="uid://c3fj0i50gb6cs" path="res://assets/textures/rocket.png" id="1_1pp6p"]
-[ext_resource type="Script" path="res://scripts/rocket.gd" id="1_os8qf"]
+[ext_resource type="Script" uid="uid://b0fjagf5d1hs8" path="res://scripts/rocket.gd" id="1_os8qf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ntsag"]
 radius = 15.0
