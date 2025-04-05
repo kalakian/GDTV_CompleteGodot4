@@ -1,16 +1,21 @@
 extends CharacterBody2D
 
-var speed = 300
+@export var speed = 300
+@export var rocket_offset = 80
+@export var firing_delay = 0.5 #seconds
+
+var time_since_fired = 0
 
 var rocket_scene = preload("res://scenes/rocket.tscn")
 
 @onready var rocket_container = $RocketContainer
 
 func _process(delta):
-	if Input.is_action_just_pressed("shoot"):
+	time_since_fired += delta
+	if Input.is_action_pressed("shoot"):
 		shoot()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	velocity = Vector2.ZERO
 	
 	if Input.is_action_pressed("move_right"):
@@ -28,7 +33,11 @@ func _physics_process(delta):
 	global_position = global_position.clamp(Vector2.ZERO, screen_size)
 
 func shoot():
-	var rocket_instance = rocket_scene.instantiate()
-	rocket_container.add_child(rocket_instance)
-	rocket_instance.global_position = global_position
-	rocket_instance.global_position.x += 80
+	if time_since_fired >= firing_delay:
+		var rocket_instance = rocket_scene.instantiate()
+		rocket_container.add_child(rocket_instance)
+		
+		rocket_instance.global_position = global_position
+		rocket_instance.global_position.x += rocket_offset
+		
+		time_since_fired = 0
