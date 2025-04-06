@@ -1,6 +1,6 @@
 extends Node2D
 
-var enemy_scene = preload("res://scenes/enemy.tscn")
+@export var enemy_scene : PackedScene
 
 @onready var spawn_positions = $SpawnPositions
 @onready var enemy_container = $EnemyContainer

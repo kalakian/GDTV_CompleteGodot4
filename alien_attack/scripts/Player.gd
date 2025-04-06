@@ -6,7 +6,7 @@ extends CharacterBody2D
 
 var time_since_fired = 0
 
-var rocket_scene = preload("res://scenes/rocket.tscn")
+@export var rocket_scene : PackedScene
 
 @onready var rocket_container = $RocketContainer
 
