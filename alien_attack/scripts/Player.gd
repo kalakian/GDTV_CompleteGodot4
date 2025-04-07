@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal took_damage
+
 @export var speed = 300
 @export var rocket_offset = 80
 @export var firing_delay = 0.5 #seconds
@@ -35,9 +37,15 @@ func _physics_process(_delta):
 func shoot():
 	if time_since_fired >= firing_delay:
 		var rocket_instance = rocket_scene.instantiate()
-		rocket_container.add_child(rocket_instance)
+		rocket_container.add_child(rocket_instance, true)
 		
 		rocket_instance.global_position = global_position
 		rocket_instance.global_position.x += rocket_offset
 		
 		time_since_fired = 0
+
+func take_damage():
+	took_damage.emit()
+
+func die():
+	queue_free()
