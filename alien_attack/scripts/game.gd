@@ -3,8 +3,12 @@ extends Node2D
 var lives = 3
 var score = 0
 
+@export var gos_scene : PackedScene
+@export var game_over_delay = 1.5
+
 @onready var player = $Player
 @onready var enemy_container = $Enemies
+@onready var ui = $UI
 @onready var hud = $UI/HUD
 
 func _ready():
@@ -24,8 +28,13 @@ func _on_player_took_damage():
 
 
 func game_over():
-	print("Game Over!")
 	player.die()
+	
+	await get_tree().create_timer(game_over_delay).timeout
+	
+	var gos = gos_scene.instantiate()
+	gos.set_score(score)
+	ui.add_child(gos, true)
 
 
 func _on_enemy_spawner_enemy_spawned(enemy_instance):
