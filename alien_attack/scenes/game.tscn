@@ -20,8 +20,6 @@ stretch_mode = 1
 [node name="Player" parent="." instance=ExtResource("2_u1xkg")]
 position = Vector2(72, 351)
 
-[node name="EnemySpawner" parent="." instance=ExtResource("3_j8cdj")]
-
 [node name="Deathzone" type="Area2D" parent="."]
 position = Vector2(-150, 0)
 collision_layer = 8
@@ -31,5 +29,10 @@ collision_mask = 2
 position = Vector2(30.5, 360)
 shape = SubResource("RectangleShape2D_a6j7x")
 
+[node name="Enemies" type="Node" parent="."]
+
+[node name="EnemySpawner" parent="Enemies" instance=ExtResource("3_j8cdj")]
+
 [connection signal="took_damage" from="Player" to="." method="_on_player_took_damage"]
 [connection signal="area_entered" from="Deathzone" to="." method="_on_deathzone_area_entered"]
+[connection signal="enemy_spawned" from="Enemies/EnemySpawner" to="." method="_on_enemy_spawner_enemy_spawned"]

@@ -17,6 +17,7 @@ func _process(delta):
 	if Input.is_action_pressed("shoot"):
 		shoot()
 
+
 func _physics_process(_delta):
 	velocity = Vector2.ZERO
 	
@@ -34,6 +35,7 @@ func _physics_process(_delta):
 	var screen_size = get_viewport_rect().size
 	global_position = global_position.clamp(Vector2.ZERO, screen_size)
 
+
 func shoot():
 	if time_since_fired >= firing_delay:
 		var rocket_instance = rocket_scene.instantiate()
@@ -44,8 +46,10 @@ func shoot():
 		
 		time_since_fired = 0
 
+
 func take_damage():
 	took_damage.emit()
+
 
 func die():
 	queue_free()
