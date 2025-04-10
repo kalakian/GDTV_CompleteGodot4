@@ -9,6 +9,7 @@ var score = 0
 
 func _ready():
 	hud.set_score_label(0)
+	hud.set_lives(lives)
 
 
 func _on_deathzone_area_entered(area):
@@ -17,10 +18,9 @@ func _on_deathzone_area_entered(area):
 
 func _on_player_took_damage():
 	lives -= 1
+	hud.set_lives(lives)
 	if lives == 0:
 		game_over()
-	else:
-		print(lives, " lives remaining")
 
 
 func game_over():
