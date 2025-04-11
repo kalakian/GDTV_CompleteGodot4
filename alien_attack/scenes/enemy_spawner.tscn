@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dhhbffb21rn3v"]
+[gd_scene load_steps=4 format=3 uid="uid://dhhbffb21rn3v"]
 
 [ext_resource type="Script" uid="uid://dfwiv1vvlsbt" path="res://scripts/enemy_spawner.gd" id="1_cccbl"]
 [ext_resource type="PackedScene" uid="uid://iubnjfmgkq08" path="res://scenes/enemy.tscn" id="2_devoi"]
+[ext_resource type="PackedScene" uid="uid://cl8ajalcnoej5" path="res://scenes/path_enemy.tscn" id="3_xl0gr"]
 
 [node name="EnemySpawner" type="Node2D"]
 script = ExtResource("1_cccbl")
 enemy_scene = ExtResource("2_devoi")
+path_enemy_scene = ExtResource("3_xl0gr")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
@@ -32,4 +34,9 @@ position = Vector2(0, 550)
 [node name="SpawnPos_06" type="Marker2D" parent="SpawnPositions"]
 position = Vector2(0, 675)
 
+[node name="PathEnemySpawnTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="PathEnemySpawnTimer" to="." method="_on_path_enemy_spawn_timer_timeout"]
