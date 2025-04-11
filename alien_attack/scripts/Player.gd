@@ -9,8 +9,9 @@ signal took_damage
 var time_since_fired = 0
 
 @export var rocket_scene : PackedScene
-
 @onready var rocket_container = $RocketContainer
+
+@onready var rocket_shot_sound = $RocketShotSound
 
 func _process(delta):
 	time_since_fired += delta
@@ -43,6 +44,8 @@ func shoot():
 		
 		rocket_instance.global_position = global_position
 		rocket_instance.global_position.x += rocket_offset
+		
+		rocket_shot_sound.play()
 		
 		time_since_fired = 0
 

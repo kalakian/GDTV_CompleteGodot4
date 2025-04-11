@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://umi5ayb7dg3c"]
+[gd_scene load_steps=6 format=3 uid="uid://umi5ayb7dg3c"]
 
 [ext_resource type="Script" uid="uid://d2jo843ynuyow" path="res://scripts/Player.gd" id="1_b574v"]
 [ext_resource type="Texture2D" uid="uid://bvj82smqods0y" path="res://assets/textures/player_ship.png" id="2_oeytv"]
 [ext_resource type="PackedScene" uid="uid://dx48qhlub6br" path="res://scenes/rocket.tscn" id="2_qhqgy"]
+[ext_resource type="AudioStream" uid="uid://duwxrs1ga04fa" path="res://assets/audio/sfx_laser2.wav" id="4_dqkch"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xk255"]
 radius = 28.0
@@ -23,3 +24,6 @@ texture = ExtResource("2_oeytv")
 shape = SubResource("CapsuleShape2D_xk255")
 
 [node name="RocketContainer" type="Node" parent="."]
+
+[node name="RocketShotSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_dqkch")

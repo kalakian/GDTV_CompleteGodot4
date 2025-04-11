@@ -8,8 +8,12 @@ var score = 0
 
 @onready var player = $Player
 @onready var enemy_container = $Enemies
+
 @onready var ui = $UI
 @onready var hud = $UI/HUD
+
+@onready var enemy_hit_sound = $EnemyHitSound
+@onready var player_damage_sound = $PlayerDamageSound
 
 func _ready():
 	hud.set_score_label(0)
@@ -23,6 +27,9 @@ func _on_deathzone_area_entered(area):
 func _on_player_took_damage():
 	lives -= 1
 	hud.set_lives(lives)
+	
+	player_damage_sound.play()
+	
 	if lives == 0:
 		game_over()
 
@@ -45,3 +52,5 @@ func _on_enemy_spawner_enemy_spawned(enemy_instance):
 func _on_enemy_died():
 	score += 100
 	hud.set_score_label(score)
+	
+	enemy_hit_sound.play()
