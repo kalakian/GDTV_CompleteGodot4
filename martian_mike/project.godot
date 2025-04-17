@@ -27,6 +27,10 @@ window/stretch/mode="viewport"
 
 project/assembly_name="Martian Mike"
 
+[global_group]
+
+traps=""
+
 [input]
 
 move_right={
