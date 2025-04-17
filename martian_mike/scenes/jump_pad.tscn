@@ -80,7 +80,7 @@ animations = [{
 size = Vector2(23, 3)
 
 [node name="JumpPad" type="Area2D"]
-collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_ityjr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var player = $Player
 @onready var start_position = $StartPosition
 
 func _process(_delta):
@@ -10,5 +11,14 @@ func _process(_delta):
 
 
 func _on_deathzone_body_entered(body):
-	body.velocity = Vector2.ZERO
-	body.global_position = start_position.global_position
+	if body is Player:
+		reset_player()
+
+
+func reset_player():
+	player.velocity = Vector2.ZERO
+	player.global_position = start_position.global_position
+
+
+func _on_trap_touched_player():
+	reset_player()

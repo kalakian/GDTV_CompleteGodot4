@@ -7,6 +7,7 @@ class_name Player
 @export var speed = 125
 
 @onready var animated_sprite = $AnimatedSprite2D
+	
 
 func _physics_process(delta):
 	if is_on_floor():
